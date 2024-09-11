@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Upon</title>
+    <style>
+        body, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        /* Body Styles - Gradient Background */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom right, #33df0c, #ffde59); /* Updated gradient background */
+            color: white;
+            overflow-x: hidden; /* Prevent horizontal overflow */
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: rgba(255, 255, 255, 0.1); /* Slight transparency for header */
+            padding: 10px 0;
+            border-bottom: 1px solid #ffffff; /* White colored horizontal line */
+            animation: fadeInDown 1s ease-in-out; /* Fade-in animation for the header */
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            color: white;
+        }
+
+        .logo img {
+            width: 200px; /* Adjust logo size */
+            margin-right: 10px;
+            background-color: white; /* White background */
+            border-radius: 10px; /* Rounded corners */
+            padding: 5px; /* Add some padding to separate the image from the border */
+            transition: transform 0.3s ease; /* Add smooth transition for hover effect */
+        }
+
+        .logo img:hover {
+            transform: scale(1.1); /* Enlarge the logo on hover */
+        }
+
+        /* Navigation Bar Styles */
+        .navbar ul {
+            display: flex;
+        }
+
+        .navbar ul li {
+            margin-right: 20px;
+            position: relative; /* Required for positioning the hover effect */
+        }
+
+        .navbar ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 14px;
+            transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for color, background, and transform */
+            padding: 10px 15px; /* Add some padding to make the hover effect more noticeable */
+            border-radius: 20px; /* Rounded corners for the hover effect */
+        }
+
+        .navbar ul li a:hover {
+            color: #000; /* Black color on hover */
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background on hover */
+            transform: scale(1.05); /* Slight enlargement on hover */
+        }
+
+        /* Contact Info Styles */
+        .contact-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-button {
+            background-color: #A73FE8;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            border: 1px solid #A73FE8;
+            transition: background-color 0.3s ease, transform 0.3s ease; /* Add transform transition */
+        }
+
+        .contact-button:hover {
+            background-color: #FFFFFF;
+            color: #A73FE8;
+            transform: scale(1.1); /* Enlarge button on hover */
+        }
+
+        /* Hero Section Styles */
+        .hero {
+            position: relative; /* Positioned element */
+            background-image: url('https://img.freepik.com/free-vector/waste-sorting-concept_74855-7934.jpg'); /* Updated image URL */
+            background-size: cover;
+            background-position: center;
+            padding: 80px 0;
+            text-align: center;
+            color: white;
+            animation: fadeInUp 1.5s ease-out; /* Fade-in animation for the hero section */
+        }
+
+        /* Adjusted the content box position */
+        .hero-content {
+            position: relative; /* Ensure the content sits above the overlay */
+            max-width: 800px;
+            margin: 0 auto 0 150px; /* Shifted content to the left by adding left margin */
+            background: rgba(0, 0, 0, 0.5); /* Transparent background for text */
+            padding: 20px;
+            border-radius: 10px;
+            text-align: left; /* Align text to the left */
+            animation: fadeInLeft 1.5s ease; /* Fade-in from left animation for the content */
+        }
+
+        .hero-content h2 {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            transition: color 0.3s ease; /* Smooth transition for hover effect */
+        }
+
+        .hero-content h2:hover {
+            color: #FFD700; /* Change color on hover */
+        }
+
+        /* New styles for the highlighted text */
+        .hero-highlight {
+            text-align: center;
+            margin-top: 20px; /* Margin at the top to separate it from the hero section */
+            animation: fadeIn 2s ease; /* Fade-in animation for the highlighted text */
+        }
+
+        .hero-highlight .highlight {
+            color: #FFD700; /* Highlight color */
+            font-weight: bold;
+            font-size: 24px; /* Increased font size */
+            transition: color 0.3s ease; /* Smooth transition for hover effect */
+        }
+
+        .hero-highlight .highlight:hover {
+            color: #A73FE8; /* Highlight color on hover */
+        }
+
+        /* Footer Styles */
+        .footer {
+            background-color: #333; /* Dark background color */
+            color: #fff; /* White text color */
+            padding: 20px 0; /* Padding for spacing */
+            text-align: center; /* Center the text */
+            animation: fadeIn 2s ease; /* Fade-in animation for footer */
+        }
+
+        .footer p {
+            margin: 0; /* Remove default margin */
+            font-size: 14px; /* Font size */
+        }
+
+        /* Spacer Section to Increase Length */
+        .spacer {
+            height: 800px; /* Height to increase the length of the webpage */
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="https://www.sih.gov.in/img1/logo/SIH_logo_2024_horizontal.png" alt="Smart India Hackathon 2024 Logo">
+            </div>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="#">Camera</a></li>
+                    <li><a href="#">Map</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </nav>
+            <div class="contact-info">
+                <a href="{{ url_for('logout') }}" class="contact-button">Logout</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Solution for waste segregation, disposal, and further process with minimum human interventions.</h2>
+            <div class="member-info">You are a Green Nirvana Member!</div>
+        </div>
+    </section>
+
+    <!-- Highlight Section -->
+    <div class="hero-highlight">
+        <h3 class="highlight">Team Nirvana  |  2024</h3>
+    </div>
+
+    <!-- Spacer Section to Increase Length -->
+    <div class="spacer"></div>
+    <a href="{{ url_for('logout') }}">Logout</a>
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Team Nirvana. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

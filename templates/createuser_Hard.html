@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create User - Waste Segregation</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            background: url('https://img.freepik.com/premium-photo/reduce-reuse-recycle-symbol-water-drops-dark-background-ecological-metaphor-ecological-waste-management-sustainable-economical-lifestyle_35148-8152.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .container {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            height: 100vh;
+            padding: 0 20px;
+        }
+
+        .form-container {
+            max-width: 400px;
+            width: 100%;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            margin-left: auto;
+        }
+
+        h1 {
+            font-size: 1.8em;
+            text-align: center;
+            margin-top: 0;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin: 10px 0 5px;
+        }
+
+        input {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #140a73;
+            color: rgb(240, 241, 247);
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #ecf5ee;
+        }
+
+        p {
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h1>Create User</h1>
+            <form method="POST">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit">Create User</button>
+            </form>
+            <p>Already have an account? <a href="{{ url_for('login') }}">Back to Login</a></p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        /* Add your styles here */
+    </style>
+</head>
+<body>
+    <h1>Admin Dashboard</h1>
+    <form action="{{ url_for('export_requested') }}" method="get">
+        <button type="submit">Export Requested Users</button>
+    </form>
+    <form action="{{ url_for('move_users') }}" method="post">
+        <button type="submit">Move Users to Main</button>
+    </form>
+    <a href="{{ url_for('logout') }}">Logout</a>
+</body>
+</html>

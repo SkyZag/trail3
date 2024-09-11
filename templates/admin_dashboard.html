@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Admin Dashboard</h1>
+        <nav>
+            <a href="{{ url_for('green_dashboard') }}">Green Dashboard</a>
+            <a href="{{ url_for('blue_dashboard') }}">Blue Dashboard</a>
+            <a href="{{ url_for('admin_dashboard') }}">Admin Dashboard</a>
+        </nav>
+        
+    </header>
+
+    <main>
+        <h2>Requests</h2>
+        {% if requests.empty %}
+            <p>No requests available.</p>
+        {% else %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Blue Tokens</th>
+                        <th>Green Tokens</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for index, row in requests.iterrows() %}
+                    <tr>
+                        <td>{{ row['username'] }}</td>
+                        <td>{{ row['email'] }}</td>
+                        <td>{{ row['phone'] }}</td>
+                        <td>{{ row['blue_tokens'] }}</td>
+                        <td>{{ row['green_tokens'] }}</td>
+                        <td>
+                            <form method="post">
+                                <input type="hidden" name="username" value="{{ row['username'] }}">
+                                <button type="submit" name="action" value="accept">Accept</button>
+                                <button type="submit" name="action" value="reject">Reject</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+    </main>
+
+    <footer>
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </footer>
+</body>
+</html>
